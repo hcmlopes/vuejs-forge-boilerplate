@@ -5,13 +5,13 @@ const dropzoneEl = ref<HTMLElement | null>(null);
 const file = ref();
 const { base64: url } = useBase64(file);
 const { isOverDropZone } = useDropZone(dropzoneEl, (files) => {
-  if (!files) return;
+  if (!files) {
+    return;
+  }
   file.value = files[0];
-  console.log(file.value);
 });
 function onFileChange(e: any) {
   file.value = e.target.files[0];
-  console.log(file.value);
 }
 function reset() {
   file.value = null;

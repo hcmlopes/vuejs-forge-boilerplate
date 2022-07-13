@@ -1,4 +1,5 @@
 <script setup>
+import { useAlerts } from '@/stores/alerts';
 import { ref } from 'vue';
 
 const boards = ref([
@@ -25,8 +26,10 @@ const boards = ref([
   },
 ]);
 
+const alerts = useAlerts();
+
 function createNewBoard() {
-  console.log('create new board');
+  alerts.success('created new board!');
 }
 </script>
 
